@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf8" />
+	<title>React</title>
+	<style type="text/css">
+	body {
+		background: #eee;
+	} 
+	.step {
+		width: 680px;
+	}
+	</style>
+</head>
+<body>
+<div id="impress">
+	<div class="step " data-x="0" >
+		<h1>React专题分享</h1>
+		<h4>董浩</h4>
+		<h5>微博:freeeeaker</h5>
+		<h5>qq:437270544</h5>
+		<h5>github:https://github.com/freeeeaker</h5>
+	</div>
+	<div class="step s1" data-x="1500">
+		<h3>本次演讲主要分为三个部分</h3>
+		<ul>
+			<li>基础:包含一些ES6,webpack</li>
+			<li>入门:react的jsx语法，生命周期函数，组件间通信</li>
+			<li>中级:redux,react-router</li>
+		</ul>
+	</div>
+	<div class="step"  data-x="1500" data-y="1500" data-rotate="45" >
+		<h3>ES6</h3>
+		<p>ES6是下一代js规范，虽然ES6目前还有很多兼容性问题，但是你可以通过babel将其转换成浏览器支持的ES5代码。</p>
+		<p>ES6提供了一些新的方法和属性，现在很多框架都支持或者只支持ES6写法，所以建议大家还是尽快拥抱ES6</p>
+		<p>目前学习ES6的最好文档就是阮一峰的<a href="http://es6.ruanyifeng.com" target="_blank" >ES6教程</a></p>
+	</div>
+	<div class="step" data-x="1500" data-y="3000" data-rotate="45" >
+		<h5>由于ES6加入了很多新特性，有些地方我们并不会用到，所以我在此介绍一下我们常用的一些</h5>
+		<ul>
+			<li>箭头函数</li>
+			<li>模块机制import,export</li>
+			<li>类，class</li>
+			<li>解构赋值</li>
+			<li>新的函数特性,默认参数,bind</li>
+			<li>新的对象特性，扩展运算符，assign</li>
+			<li>模板字符串</li>
+			<li>修饰符decorator</li>
+		</ul>
+	</div>
+	<div class="step" data-x="1500" data-y="4000" >
+		<h5>用webpack快速搭建一个react环境</h5>
+		<p>webpack是现在一款非常火的模块加载器兼打包工具，它能把各种资源，例如JS、css、图片都当做一个模块来使用。由于React使用了新的语法jsx，所以我们需要用webpack将其转换为浏览器能识别的js。webpack和react联系的很紧密。</p>
+		<p>webpack的配置可以分为生产环境和开发环境。开发环境侧重于调试，生产环境侧重于性能优化，现在我们简单的来配置一个生产环境的webpack。<p>
+		<p>webpack的配置主要有这几个大项目</p>
+		<ul>
+			<li>entry:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspjs&nbsp入口源文件</li>
+			<li>output:&nbsp&nbsp&nbsp&nbsp生成文件 </li>
+			<li>module:&nbsp&nbsp配置各种loaders</li>
+			<li>resolve:&nbsp&nbsp&nbsp文件路径的指向</li>
+			<li>plugins:&nbsp&nbsp&nbsp插件，可以使用webpack更多的api</li>
+		</ul>
+	</div>
+	<div class="step" data-x="1500" data-y="5000" >
+		<h5>如何配置webpack</h5>
+		<ol>
+			<li>初始化项目，npm init --yes</li>
+			<li>下载webpack</li>
+			<li>配置entry,output</li>
+			<li>配置loaders，常用的loaders有css,style,less,url,file,babel</li>
+			<li>babel的配置是用来转换react和es6语法的，它的配置我们可以写在.babelrc中</li>
+			<li>配置resolve的extensios，取消后缀名</li>
+			<li>开启devtool的sourcemap</li>
+			<li>插件有很多，webpack自带也有插件。一般常用的有,html-webpack-plugin,clean-webpack-plugin,hotMouleReplacementPlugin...</li>
+		</ol>
+	</div>
+	<div class="step" data-x="1500" data-y="6000">
+		<h5>如何配置webpack-dev-server</h5>
+		<ol>
+			<li>配置入口，'webpack-dev-server/client?http://localhost:8081','webpack/hot/only-dev-server'</li>
+			<li>配置devServer选项，port,inline,historyApiFallback,stat,hot</li>
+			<li>配置插件 webpack.HotModuleReplacementPlugin</li>
+			<li>ps: module.hot.accept()</li>
+		</ol>
+	</div>
+	<div class="step" data-x="1500" data-y="7000" data-rotate="90" >
+		<h5>jsx语法,lesson1</h5>
+		<p>在render方法中我们可以返回一个HTML结构或者react组件，但是它必须只能有一个顶层标签</p>
+		<p>利用 JSX 编写 DOM 结构，可以用原生的 HTML 标签，也可以直接像普通标签一样引用 React 组件。这两者约定通过大小写来区分，小写的字符串是 HTML 标签，大写开头的变量是 React 组件</p>
+		<p>HTML 里的 class 在 JSX 里要写成 className，因为 class 在 JS 里是保留关键字。同理某些属性比如 for 要写成 htmlFor。</p>
+		<p>jsx允许在标签中使用js，但你需要用一个大括号包起来。JSX 允许直接在模板插入 JavaScript 变量。如果这个变量是一个数组，则会展开这个数组的所有成员基本上。但是最终返回的值必须是react组件，null或者undefined</p>
+		<p>我们可以在组件上传递值，这个值可以是任何js数据类型。但是，除了字符串(模板字符串除外)，你都需要使用大括号包裹起来</p>
+		<p>我们也可以在一个react组件中嵌套另一个react组件</p>
+	</div>
+	<div class="step" data-x="1500" data-y="8000" data-rotate="90" >
+		<h5>状态机,lesson2</h5>
+		<p>React 的一大创新，就是将组件看成是一个状态机，一开始有一个初始状态，然后用户互动，导致状态变化，从而触发重新渲染 UI</p>
+		<p>组件获取数据有两种方式，一种是props，来自于外面传递，不可改变,还有一种是state，我们可以改变它</p>
+		<p>但是我们不要直接改变state，而是创建一个新的state来替换掉原来的state</p>
+		<p>也就是如果我们想改变state中的某个值，不要直接操作它，而是通过setState来替换。替换自后react会自动重新渲染。要注意的是这一步是一个异步操作。</p>
+	</div>
+	<div class="step" data-x="1500" data-y="9000" data-rotate="90" >
+		<h5>事件,lesson3</h5>
+		<p>react自己把原生事件封装了一下，因此避免了一些兼容性问题</p>
+		<p>我们可以通过e.nativeEvent访问原生事件</p>
+		<p>我们也可以通过e.target获取当前目标元素</p>
+		<p>react事件列表，<a href="http://reactjs.cn/react/docs/events.html">传送门</a></p>
+	</div>
+	<div class="step" data-x="1500" data-y="10000" data-rotate="90" >
+		<h5>表单组件,lesson4</h5>
+		<p>react的表单组件和原生组件有点区别，一般分为受控组件和非受控组件</p>
+		<p>顾名思义，受控组件就是行为受到控制。在给表单组件例如Input设置了默认值value后，那么不管你再怎么输入，状态都不会再改变。要想改变状态，我们必须通过onChange事件通过修改state来改变</p>
+		<p>非受控组件的value没有值或者为null，如果想给其赋上默认值，可以通过defalutValue，对于input[type='checkbox']则可以是defaultChecked</p>
+		<p>另外，我们可以通过给元素指定ref 来通过this.refs 来找到所要获取的元素</p>
+		<p>阮一峰的react入门教程，<a href="http://www.ruanyifeng.com/blog/2015/03/react.html">传送门</a></p>
+	</div> 
+	<div class="step" data-x="3000" data-y="10000" data-rotate="45">
+		<h5>生命周期函数,lesson6</h5>
+		<p>实例化</p>
+		<span>首次实例化</span>
+		<ul>
+			<li>getDefaultProps</li>
+			<li>getInitialState</li>
+			<li>componentWillMount</li>
+			<li>render</li>
+			<li>componentDidMount</li>
+		</ul>
+		<p>存在期</p>
+		<span>组件已存在时的状态改变</span>
+		<ul>
+			<li>componentWillReceiveProps</li>
+			<li>shouldComponentUpdate</li>
+			<li>componentWillUpdate</li>
+			<li>render</li>
+			<li>componentDidUpdate</li>
+		</ul>
+		<p>销毁&清理期</p>
+		<li>componentWillUnmount</li>
+	</div>
+	<div class="step" data-x="4000" data-y="10000" data-rotate="0" >
+		<h5>组件间通信lesson7</h5>
+		<p>父组件=>子组件,子组件=>父组件,兄弟组件=>兄弟组件</p>
+		<p>子组件=>父组件，兄弟组件=>兄弟组件 一般通过回调的方式来进行通信</p>
+		<p>还可以通过EventEmitter或者context</p>
+	</div>
+	<div class="step" data-x="5000" data-y="11000" data-rotate="90" >
+		<h5>Redux</h5>
+		<p>facebook提出了一种新的有别于MVC的架构思想，flux。并基于此，推出了一个flux库。但是这个库并不是很完善，因此有很多人也基于flux思想推出了自己的库。而redux就是一个使用广泛的库。</p>
+		<img src="flux.jpeg" />
+	</div>
+	<div class="step" data-x="6000" data-y="11000" data-rotate="90" style="text-align:center" >
+		<img src="mvc.jpeg" width="600" style="margin-bottom:20px" />
+		<img src="fluxLarge.jpeg" alt="" width="600" >
+	</div>
+	<div class="step" data-x="7000" data-y="11000" data-rotate="90">
+		<h5>redux与react-redux,lesson8</h5>
+		<p>Redux包含如下方法，createStore、combineReducers、bindActionCreators、compose、applyMiddleware</p>
+		<p>Redux其实是一个独立的库，它可以和react结合用，也可以和别的框架组合。与react结合使用的时候我们需要引入一个react-redux。它有两个方法，provider和connect。</p>
+	</div>
+	<div class="step" data-x="8000" data-y="11000" data-rotate="90" >
+		<h5>redux-thunk,lesson9</h5>
+		<p>redux要求reducer必须是一个纯函数，但是我们在与服务器交互时，这是一个异步的过程，这样就不能保证reducer是一个纯函数</p>
+		<p>此时我们需要引入一个中间价，redux-thunk</p>
+	</div>
+	<div class="step" data-x="9000" data-y="12000" data-rotate="0" >
+		<h5>react-router</h5>
+		<p>react-router也是以组件的形式，最外层是一个Router，接收一个history</p>
+		<p>Router的component 属性接收一个react组件，path匹配路径，我们可以通过:params的方式匹配动态的路由</p>
+		<p>路由的各个属性可以在this.props上看到</p>
+	</div>
+	<div class="step" data-x="10000" data-y="12000" data-rotate="0">
+		<h5>异步加载</h5>
+		<p>在面对一个单页面应用的时候，假如我们进入首页，我们其实是不需要加载首页之外的内容的，所以我们可以动态加载，进入某个页面再去加载相应的内容</p>
+		<p>react提供了一个getComponents方法让我们异步加载，除此之外我们还需要配合webpack的代码分割,code splitting</p>
+		<p>webpack的异步加载有两种方法,一种是require.ensure([],(require)=>require(''))</p>
+		<p>还有一种是webpack的bundle-loader</p>
+		<p>推荐使用bundle-loader</p>
+	</div>
+	<div class="step" data-x="11000" data-y="13000" data-rotate="180" >
+		<h5>尾声</h5>
+		<p>本来还打算在讲讲react的动画，性能优化，以及一点函数式编程，但是一来讲了很多了，怕同学们消化不了，二来我自己目前也正在琢磨中，不是很成熟</p>
+		<p>以后有机会还可以再给大家分享</p>
+		<p>谢谢大家的倾听！</p>	
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="../node_modules/impress.js/js/impress.js"></script>
+<script type="text/javascript">
+	var impressAPI = impress('impress')
+	impressAPI.init()
+
+</script>
+</html>
