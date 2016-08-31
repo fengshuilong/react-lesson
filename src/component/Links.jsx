@@ -13,6 +13,7 @@ class Links extends Component {
 						return <li key={`link-${index}`}  style={{ marginBottom:'10px' }} ><a href={ `/lesson${index+1}.html` }>{ item }</a></li>
 					})
 				}
+				<li onClick={ ()=>browserHistory.push('/search') }  style={{ color:'#b31',marginBottom:'10px' }} >这是一个比较完整的github demo</li>
 				</ul>
 				<p><span style={{ color:'#6cf' }} onClick={ ()=>browserHistory.push('/') } >点此返回首页</span></p>
 			</div>

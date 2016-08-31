@@ -12,7 +12,8 @@ module.exports = {
 	entry:entry,
 	output:{
 	    path:'./dist',
-	    filename:'[name]-bundle.js'
+	    filename:'[name]-bundle.js',
+	    publicPath:'/'
 	},
 	module:{
 		loaders:[
