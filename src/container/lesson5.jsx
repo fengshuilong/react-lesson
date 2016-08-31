@@ -38,12 +38,18 @@ export class TodoList extends Component {
 		e.stopPropagation()
 	}
 	handleDone(index) {
-		let done=this.state.listValues[index].done?false:true
+		let count = 0;
+		console.log(index)
+		for(let i=0;i<this.state.listValues.length;i++) {
+			if(this.state.listValues[i].index==index)break
+			count++
+		}
+		let done=this.state.listValues[count].done?false:true
 		this.setState({
 			listValues:[
-			...this.state.listValues.slice(0,index),
-			Object.assign({},this.state.listValues[index],{ done }),
-			...this.state.listValues.slice(index+1)
+			...this.state.listValues.slice(0,count),
+			Object.assign({},this.state.listValues[count],{ done }),
+			...this.state.listValues.slice(count+1)
 			]
 		})
 	}
@@ -67,7 +73,7 @@ export class TodoList extends Component {
 			footer = null
 		if(total>0) {
 			checkBox = (
-				<div>
+				<div style={{ margin:'20px',marginLeft:0 }} >
 					<input 
 						type     = "radio" 
 						name     = "type" 
