@@ -1,0 +1,66 @@
+@import '../base/base.less';
+
+.list-inline li {
+	float:left;
+}
+.logo {
+	font-size: 28px;
+	line-height: 40px;
+	transition:all ease .3s;
+	position: relative;
+	&:hover {
+		opacity: .8;
+		text-shadow:1px 1px 1px rgba(0,0,0,.5);
+	}
+}
+
+.header {
+	height: 40px;
+	padding: 10px 0;
+	margin-bottom: 60px;
+	border:1px solid #eee;
+	box-shadow: 0 0 10px rgba(0,0,0,0.05);
+	background: #fcfcfc;
+		
+
+	.menu {
+		height: 40px;
+		line-height: 40px;
+		font-size: 18px;
+		li {
+			margin-left: 20px;
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+	}
+	.search-box {
+		line-height: 40px;
+		input {
+			height: 24px;
+			width: 200px;
+		}
+		button {
+			padding: 7px 20px;
+			margin-left: -1px;
+		}
+	}
+}
+
+.demo-list li {
+	transform-origin:center;
+	margin-bottom: 20px;
+	font-size: 14px;
+	height: 20px;
+	line-height: 20px;
+		a {
+			cursor: pointer;
+			transition:all ease .3s;
+			display: inline-block;
+			transform:scale(1);
+			&:hover {
+			transform:scale(1.1);
+		}
+	}
+	
+}

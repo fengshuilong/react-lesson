@@ -6,7 +6,7 @@ for(var i=1;i<11;i++){
 	entry['lesson'+i] = './src/entry/lesson'+i+'.js'
 	plugins.push(new htmlWebpackPlugin({ template:'./src/template/index.html',filename:'./lesson'+i+'.html',chunks:['common','lesson'+i] }))
 }
-entry['index'] = './src/entry/lesson0.js'
+entry['index'] = './src/index.js'
 plugins.push(new htmlWebpackPlugin({ template:'./src/template/index.html',filename:'./index.html',chunks:['common','index'] }))
 module.exports = {
 	entry:entry,

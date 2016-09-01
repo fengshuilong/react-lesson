@@ -2,7 +2,7 @@ import React,{ Component } from 'react'
 import { render } from 'react-dom'
 import { InputBox } from '../container'
 
-require('../style/pages/base.less')
+require('../style/base/base.less')
 require('../style/pages/lesson4.less')
 
 class App extends Component {

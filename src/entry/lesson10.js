@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import { IndexPage,MainPage,OtherPage } from '../component'
 import { Router,Route,browserHistory,IndexRoute } from 'react-router'
 
-require('../style/pages/base.less')
+require('../style/base/base.less')
 let App = (
 			<Router history={ browserHistory }>
 				<Route path="/lesson10.html" component={ IndexPage } >

@@ -5,7 +5,7 @@ import { createStore,combineReducers } from 'redux'
 import * as reducers from '../reducers/shoppingListReducer.js'
 import { ShoppingList } from '../container'
 
-require('../style/pages/base.less')
+require('../style/base/base.less')
 var store = createStore(combineReducers({...reducers}))
 let App = (
 		<Provider store = { store }>

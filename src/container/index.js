@@ -1,4 +1,4 @@
-export { LandingPage }  from './lesson0.jsx'
+export { LandingPage }  from './LandingPage.jsx'
 export { Start }        from './lesson1.jsx'
 export { Count }        from './lesson2.jsx'
 export { Drag }         from './lesson3.jsx'
