@@ -1,7 +1,7 @@
 import React,{ Component } from 'react'
 import { browserHistory } from 'react-router'
 
-export class Header extends Component {
+export default class Header extends Component {
 	render(){
 		return (
 			<header className="header" >

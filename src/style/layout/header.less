@@ -1,0 +1,44 @@
+.header {
+	height: 60px;
+	padding: 10px 0;
+	border:1px solid #eee;
+	box-shadow: 0 0 10px rgba(0,0,0,0.05);
+	background: #fcfcfc;
+	.container { 
+		height: 40px; 
+	}
+	.logo {
+		font-size: 28px;
+		line-height: 40px;
+		transition:all ease .3s;
+		position: relative;
+		cursor: pointer;
+		font-family: @font-mon;
+		&:hover {
+			transform:translateY(1px);
+			text-shadow:1px 1px 1px rgba(0,0,0,.5);
+		}
+		&:active {
+			transform:translateY(0);
+			text-shadow:1px 1px 1px rgba(0,0,0,0);
+		}
+	}
+	.menu {
+		height: 40px;
+		line-height: 40px;
+		font-size: 18px;
+		li {
+			margin-left: 20px;
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+	}
+	canvas {
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+	}
+}

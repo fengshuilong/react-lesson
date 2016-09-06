@@ -17,7 +17,7 @@ export class ItemList extends Component {
 							return list.done !=true
 						}
 					}).map((item,index)=>{
-						return <Item key={`todo-${index}`} index={ index } done={ item.done } value={ item.value } />
+						return <Item key={`item-${index}`} index={ index } done={ item.done } value={ item.value } />
 					})
 				}
 			</ul>

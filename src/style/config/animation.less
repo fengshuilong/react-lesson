@@ -1,0 +1,74 @@
+.rotate-translate-scale-in {
+	.rotate-translate-scaleIn()
+}
+.scale-in-delay-500ms {
+	.scaleIn(1s;.5s)
+}
+.left-in-delay-500ms {
+	.leftIn(1s;.5s)
+}
+.right-in-delay-500ms {
+	.rightIn(1s;.5s)
+}
+.right-in {
+	.rightIn()
+}
+.top-in {
+	.topIn()
+}
+.bottom-in {
+	.bottomIn()
+}
+
+
+
+
+
+.scaleIn(@duration:1s;@delay:0s;@timeFunction:ease) {
+	animation:scaleIn @duration @delay @timeFunction forwards;
+}
+@keyframes scaleIn {
+	from { opacity: 0;transform:scale(0.9); }
+	to   { opacity: 1;transform:scale(1); }
+}
+.rotate-translate-scaleIn(@duration:1s;@delay:0s;@timeFunction:ease) {
+	animation:rotateTranslateScaleIn @duration @delay @timeFunction forwards;
+}
+@keyframes rotateTranslateScaleIn {
+	from {
+		opacity: 0;
+		transform:translate3d(0,400px,0) scale(0.8) rotateX(-15deg) rotateY(90deg);
+	}
+	to {
+		opacity: 1;
+		transform:translate3d(0,0,0) scale(1) rotateX(0) rotateY(0);
+	}
+}
+.leftIn(@duration:1s;@delay:0s;@timeFunction:ease) {
+	animation:leftIn @duration @delay @timeFunction forwards;
+}
+@keyframes leftIn {
+	from { opacity: 0;transform:translateX(-60px) skewX(15deg) ; }
+	to   { opacity: 1;transform:translateX(0) skewX(0); }
+}
+.rightIn(@duration:1s;@delay:0s;@timeFunction:ease) {
+	animation:rightIn @duration @delay @timeFunction forwards;
+}
+@keyframes rightIn {
+	from { opacity: 0;transform:translateX(60px) skewX(-15deg); }
+	to   { opacity: 1;transform:translateX(0) skewX(0); }
+}
+.topIn(@duration:1s;@delay:0s;@timeFunction:ease) {
+	animation:topIn @duration @delay @timeFunction forwards;
+}
+@keyframes topIn {
+	from { opacity: 0;transform:translateY(-60px); }
+	to   { opacity: 1;transform:translateY(0); }
+}
+.bottomIn(@duration:1s;@delay:0s;@timeFunction:ease) {
+	animation:bottomIn @duration @delay @timeFunction forwards;
+}
+@keyframes bottomIn {
+	from { opacity: 0;transform:translateY(60px); }
+	to   { opacity: 1;transform:translateY(0); }
+}

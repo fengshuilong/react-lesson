@@ -26,7 +26,9 @@ module.exports = {
 			{ test:/\.css$/,loader:ExtractTextPlugin.extract('style','css!postcss') },
 			{ test:/\.less$/,loader:ExtractTextPlugin.extract('style','css!postcss!less') },
 			{ test:/\.(js|jsx)$/,loader:'babel',exclude:/nodex_modules/ },
-			{ test:/\.(png|jpg|jpeg|gif)$/,loader:'url-loader?limit=10000' }
+			{ test:/\.(png|jpg|jpeg|gif)$/,loader:'url-loader?limit=10000' },
+			{ test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,loader: 'url-loader?limit=10000&minetype=application/font-woff' },
+			{ test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?|(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,loader: 'file-loader' }
 		]
 	},
 	postcss:function(){

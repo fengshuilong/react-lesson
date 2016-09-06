@@ -1,5 +1,5 @@
 import React,{ Component } from 'react' 
-import { UserCard } from '../component'
+import { UserCard,Header } from '../component'
 import { fetchUser } from '../actions/fetchUser.js'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
@@ -14,11 +14,12 @@ class DetailPage extends Component {
 		this.props.dispatch(fetchUser(id))
 	}
 	render() {
-		console.log(this.props.user)
 		return (
-			<div>
-				<h4 onClick={ ()=>browserHistory.goBack() } >返回</h4>
-				<UserCard user={ this.props.user }  />
+			<div className="detail-page" >
+				<Header></Header>
+				<div className="container clearfix" >
+					<UserCard user={ this.props.user }  />
+				</div>
 			</div>
 		)
 	}

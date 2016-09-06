@@ -1,66 +1,114 @@
+@import '../config/index.less';
 @import '../base/base.less';
+@import '../layout/index.less';
+@import '../components/index.less';
 
 .list-inline li {
 	float:left;
 }
-.logo {
-	font-size: 28px;
-	line-height: 40px;
-	transition:all ease .3s;
-	position: relative;
-	&:hover {
-		opacity: .8;
-		text-shadow:1px 1px 1px rgba(0,0,0,.5);
+
+.landing-page {
+	h1 {
+		margin-top: 40px;
+		margin-bottom: 60px;
+		text-align: center;
+		font-weight: 100;
+		opacity: 0;
+		transform-origin:100px center;
+		font-family: @font-pingfang;
+		&.active {
+			.rotate-translate-scaleIn();
+		}
+	}
+	p {
+		text-align: center;
+		font-size: 14px;
+		font-family: @font-pingfang;
+		opacity: 0;
+
+	}
+	.main-button-container {
+		margin-top: 40px;
+		margin-bottom: 40px;
+		opacity: 0;
 	}
 }
+.search-page {
+	.table-more {
+		cursor: pointer;
 
-.header {
-	height: 40px;
-	padding: 10px 0;
-	margin-bottom: 60px;
-	border:1px solid #eee;
-	box-shadow: 0 0 10px rgba(0,0,0,0.05);
-	background: #fcfcfc;
-		
-
-	.menu {
-		height: 40px;
-		line-height: 40px;
-		font-size: 18px;
-		li {
-			margin-left: 20px;
-			&:hover {
-				opacity: 0.8;
+	}
+}
+.detail-page {
+	.user-card {
+		padding: 40px;
+		figure {
+			width: 35%;
+			height: 100%;
+			margin-right: 5%;
+			float: left;
+			img {
+				margin:0;
 			}
 		}
-	}
-	.search-box {
-		line-height: 40px;
-		input {
-			height: 24px;
-			width: 200px;
-		}
-		button {
-			padding: 7px 20px;
-			margin-left: -1px;
-		}
+		
 	}
 }
-
+.demo-list ul {
+	padding-left: 0;
+	border:1px solid #eee;
+}
 .demo-list li {
 	transform-origin:center;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	font-size: 14px;
 	height: 20px;
 	line-height: 20px;
-		a {
-			cursor: pointer;
-			transition:all ease .3s;
-			display: inline-block;
-			transform:scale(1);
-			&:hover {
+	width: 200px;
+	height: 30px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	a {
+		cursor: pointer;
+		font-family: @font-pingfang;
+		transition:all ease .3s;
+		display: inline-block;
+		transform:scale(1);
+		line-height: 20px;
+		&:hover {
 			transform:scale(1.1);
 		}
 	}
-	
 }
+.react-demo-page {
+	.lesson-title {
+		padding-left: 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
