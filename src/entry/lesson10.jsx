@@ -1,7 +1,14 @@
 import React,{ Component,PropTypes } from 'react'
-import { connect } from 'react-redux'
+import { render } from 'react-dom'
+import { Provider,connect } from 'react-redux'
+import { createStore,combineReducers } from 'redux'
 import { AddItem,ItemList,Footer } from '../component'
 import { addOne,changeOne,selectKind } from '../actions/shoppingAction.js'
+import * as reducers from '../reducers/shoppingListReducer.js'
+
+require('../style/base/base.less')
+
+var store = createStore(combineReducers({...reducers}))
 
 @connect((state)=>{
 	return {
@@ -9,7 +16,7 @@ import { addOne,changeOne,selectKind } from '../actions/shoppingAction.js'
 		kind:state.itemKind
 	}
 })
-export class ShoppingList extends Component {
+class TodoList extends Component {
 	static childContextTypes = {
 		handleComplete:PropTypes.any
 	}
@@ -28,8 +35,8 @@ export class ShoppingList extends Component {
 		let footer = null
 		if(this.props.lists.length>0)footer=<Footer handleSelect = { this.handleSelect.bind(this) } />	
 		return (
-			<div>
-				<h2>shoppingList</h2>
+			<div className="container" >
+				<h2>todoList</h2>
 				<AddItem handleAdd = { this.handleAdd.bind(this) } />
 				<ItemList lists={ this.props.lists } kind={ this.props.kind }  />
 				{ footer }			
@@ -37,3 +44,14 @@ export class ShoppingList extends Component {
 		)
 	}
 }
+
+
+
+
+let App = (
+		<Provider store = { store }>
+			<TodoList />
+		</Provider>
+	)
+render(App,document.getElementById('app'))
+module.hot.accept()

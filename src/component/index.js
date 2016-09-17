@@ -11,3 +11,5 @@ export { OtherPage } from './OtherPage.jsx'
 export { MyIndex }   from './MyIndex.jsx'
 export { SearchBox } from './SearchBox.jsx'
 export Button from './Button.jsx'
+
+export A from './A.jsx'

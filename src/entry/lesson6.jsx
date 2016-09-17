@@ -1,16 +1,34 @@
 import React,{ Component } from 'react'
+import { render } from 'react-dom'
 
-class LifeCycleChild extends Component {
+require('../style/base/base.less')
+
+	// LifeCycle.defaultProps = {
+	// 	value:'defaultProps'
+	// }
+
+var timer = null
+
+class LifeCycle extends Component {
 	static defaultProps = { value:-1 }
 	constructor() {
 		super()
-		this.state= { value:0}
+		this.state= { value:0 ,count:0 }
 	}
 	componentWillMount() {
 	//在完成首次渲染之前调用，此时仍可以修改组件的state。
+		timer = setInterval(()=>{
+			this.setState({ count:this.state.count+1 })
+		},1000)
 	}
-	componentDidMout() {
+	componentDidMount() {
 	//此时可以操作DOM
+		var div = document.getElementById('div1')
+
+		div.style.width = '100px'
+		div.style.height = '100px'
+		div.style.background = 'red'
+		div.onclick = ()=>alert(1)
 	}
 	componentWillReceiveProps(props) {
 	//组件接收到新的props时调用，并将其作为参数nextProps使用，此时可以更改组件props及state。
@@ -30,6 +48,7 @@ class LifeCycleChild extends Component {
 
 	}
 	componentWillUnmount() {
+	clearInterval(timer)
 	//组件被移除之前被调用，可以用于做一些清理工作。
 	//在componentDidMount方法中添加的所有任务都需要在该方法中撤销，比如创建的定时器或添加的事件监听器。
 	}
@@ -50,6 +69,7 @@ class LifeCycleChild extends Component {
 		*/
 		return(
 			<div >
+				<p>自动计数：{ this.state.count } </p>
 				<p>props:{ this.props.value }</p>
 				<p>state: { this.state.value }</p>
 				<button onClick={ this.handleAdd.bind(this) } >add 1</button>
@@ -58,10 +78,7 @@ class LifeCycleChild extends Component {
 		)
 	}
 }
-// LifeCycleChild.defaultProps = {
-// 	value:'defaultProps'
-// }
-export class LifeCycle extends Component {
+class App  extends Component {
 	constructor() {
 		super()
 		this.state = { value:0 }
@@ -74,12 +91,16 @@ export class LifeCycle extends Component {
 	}
 	render() {
 		return (
-			<div>
+			<div className="container">
+				<div id="div1"></div>
 				<h2>生命周期函数</h2>
 				<button onClick={ this.handleAdd.bind(this) } >add 1</button>
 				<button onClick={ this.handleMinus.bind(this) }  >minus 1</button>
-				<LifeCycleChild value={ this.state.value } />
+				<LifeCycle value={ this.state.value } />
 			</div>
 		)
 	}
 }
+
+render(<App />,document.getElementById('app'))
+module.hot.accept()

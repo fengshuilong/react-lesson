@@ -9,7 +9,7 @@ class Img extends Component {
 	}
 	render() {
 		console.log(this.props.alert())
-		return <img src={ this.props.data } onClick={ this.props.alert } />
+		return <img src={ this.props.data } />
 	}
 }
 let CachedImage = cachedImage(Img)

@@ -1,4 +1,7 @@
 import React,{ Component } from 'react'
+import { render } from 'react-dom'
+
+require('../style/base/base.less')
 
 export class Count extends Component {
 	constructor() {
@@ -13,8 +16,8 @@ export class Count extends Component {
 	}
 	render() {
 		return (
-			<div>
-				<h2>状态管理</h2>
+			<div className="container" >
+				<h2>计数器</h2>
 				<button onClick = { this.handleAdd.bind(this) } >add 1</button>
 				<button onClick = { this.handleMinus.bind(this) } >minus 1</button>
 				<p>{ this.state.count }</p>
@@ -22,3 +25,6 @@ export class Count extends Component {
 		)
 	}
 }
+
+render(<Count />,document.getElementById('app'))
+module.hot.accept()

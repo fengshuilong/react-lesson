@@ -13,10 +13,11 @@ reactTapEventPlugin()
 require('./style/pages/index.less')
 
 let store = createStore(combineReducers({...reducers}),applyMiddleware(thunk))
+
 const loadComponentAsync = bundle=>(nextState,cb)=>bundle(component=>cb(null,component)) 
 
 let route = (
-	<Route>
+	<Router history={ browserHistory } >
 		<Route path="/" component={ LandingPage } ></Route>
 		<Route path="react"  getComponents={ (nextState,cb)=>require.ensure([],(require)=>cb(null,require('./container/ReactDemoPage.jsx'))) }>
 			<IndexRoute getComponents={ loadComponentAsync(require('bundle?lazy!babel!./component/Lesson.jsx')) } ></IndexRoute>
@@ -27,15 +28,13 @@ let route = (
 		<Route path="test"       getComponents={ loadComponentAsync(require('bundle?lazy!babel!./container/TestPage.jsx')) }></Route>
 		<Redirect from="/index" to='/'  />
 		<Route path="*" getComponents={ loadComponentAsync(require('bundle?lazy!babel!./container/ErrorPage.jsx')) }></Route>
-	</Route>
+	</Router>
 )
 
 
 let App = (
 		<Provider store={ store } >
-			<Router history={ browserHistory }  >
 			{ route }
-			</Router>
 		</Provider>
 	)
 render(App,document.getElementById('app'))

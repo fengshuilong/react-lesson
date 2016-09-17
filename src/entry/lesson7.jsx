@@ -1,7 +1,12 @@
 import React,{ Component,PropTypes } from 'react'
+import { render } from 'react-dom'
+
+require('../style/base/base.less')
+
 let Events = require('events')
 let E = new Events()
-export class SuperClass extends Component {
+
+class App extends Component {
 	static childContextTypes = { 
 		changeState:PropTypes.any
 	}
@@ -31,9 +36,9 @@ export class SuperClass extends Component {
 	}
 	render() {
 		return (
-			<div>
+			<div className="container" >
 				<h2>组件间通信</h2>
-				<h4>super:{ this.state.super }</h4>
+				<h4>父组件:{ this.state.super }</h4>
 				<SubClassA click={ this.handleClickA.bind(this) } a={ this.state.a } />
 				<SubClassB 
 					click={ this.handleClickB.bind(this) }
@@ -50,7 +55,7 @@ class SubClassA extends Component {
 		return (
 			<div>
 				<button onClick={ this.props.click } >B+1</button>
-				<p>A:{this.props.a}</p>
+				<p>子组件A:{this.props.a}</p>
 			</div>
 		)
 	}
@@ -60,7 +65,7 @@ class SubClassB extends Component {
 		return (
 			<div>
 				<button onClick={ this.props.click } >A+1</button>
-				<p>B:{ this.props.b }</p>
+				<p>子组件B:{ this.props.b }</p>
 				<SubClassC click={ this.props.clickDeep }  />
 				<SubClassD />
 				<SubClassE />
@@ -72,7 +77,7 @@ class SubClassC extends Component {
 	render() {
 		return (
 			<div>
-				<button onClick={ this.props.click } >Super+1 By props</button>
+				<button onClick={ this.props.click } >父组件+1 By props</button>
 			</div>
 		)
 	}
@@ -84,7 +89,7 @@ class SubClassD extends Component {
 	render() {
 		return (
 			<div>
-				<button onClick={ this.handleClick } >Super+1 By Emitter</button>
+				<button onClick={ this.handleClick } >父组件+1 By Emitter</button>
 			</div>
 		)
 	}
@@ -96,8 +101,11 @@ class SubClassE extends Component {
 	render() {
 		return (
 			<div>
-				<button onClick={ this.context.changeState } >Super+1 By context</button>
+				<button onClick={ this.context.changeState } >父组件+1 By context</button>
 			</div>
 		)
 	}
 }
+
+render(<App />,document.getElementById('app'))
+module.hot.accept()

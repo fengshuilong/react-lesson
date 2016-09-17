@@ -6,6 +6,10 @@ import { Motion,spring } from 'react-motion'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Paper from 'material-ui/Paper'
 
+var config = {
+	stiffness:360,
+	damping:25
+}
 
 @connect((state)=>{
 	return {
@@ -25,13 +29,11 @@ class Lesson extends Component {
 	}
 	render() {
 		let { Content } = this.props
-		console.log('I\'m rendering ')
-		console.log(Content)
 		return (
 			<MuiThemeProvider>
-				<Motion defaultStyle={{ opacity:0,left:100 }} style={{ opacity:spring(1),left:spring(0) }} >
+				<Motion defaultStyle={{ opacity:0,scale:0.9 }} style={{ opacity:spring(1,config),scale:spring(1,config) }} >
 					{ style=>{
-						return <Paper zDepth={ 3 } style={{ minHeight:'500px',padding:'20px 30px',marginBottom:'50px',opacity:style.opacity,transform:`translate3d(${style.left}px,0,0)` }} >
+						return <Paper zDepth={ 3 } style={{ minHeight:'500px',padding:'20px 30px',marginBottom:'50px',opacity:style.opacity,transform:`scale(${style.scale})` }} >
 									<Content />
 								</Paper>
 					} }

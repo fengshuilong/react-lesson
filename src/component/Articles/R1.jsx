@@ -5,12 +5,20 @@ export default class R1 extends Component {
 	render() {
 		return (
 			<Article title="JSX语法" >
-				<p>在render方法中我们可以返回一个HTML结构或者react组件，但是它必须只能有一个顶层标签</p>
-				<p>利用 JSX 编写 DOM 结构，可以用原生的 HTML 标签，也可以直接像普通标签一样引用 React 组件。这两者约定通过大小写来区分，小写的字符串是 HTML 标签，大写开头的变量是 React 组件</p>
-				<p>HTML 里的 class 在 JSX 里要写成 className，因为 class 在 JS 里是保留关键字。同理某些属性比如 for 要写成 htmlFor。</p>
-				<p>jsx允许在标签中使用js，但你需要用一个大括号包起来。JSX 允许直接在模板插入 JavaScript 变量。如果这个变量是一个数组，则会展开这个数组的所有成员基本上。但是最终返回的值必须是react组件，null或者undefined</p>
-				<p>我们可以在组件上传递值，这个值可以是任何js数据类型。但是，除了字符串(模板字符串除外)，你都需要使用大括号包裹起来</p>
-				<p>我们也可以在一个react组件中嵌套另一个react组件</p>
+				<p>为了便于书写，react引入了一种新的叫jsx的语法，它可以让你把HTML写入到js中，而更有激进的人通过内联样式将css写到html中，这一来，便打破了传统的html，css，js三者分离的局面，前端似乎走了一圈又回到原点</p>
+				<p>我们通过声明一个继承了React的Component方法的类。这个类就会有一个render方法，而且这个方法是必须的。所有的html结构就是在此书写</p>
+				<p>在通过react-dom 中的render方法，我们就可以将html插入到页面中去了</p>
+				<p>jsx语法对html的标签和原生没有太大的区别，但是有几点需要注意:</p>
+				<ol>
+					<li>所有标签必须闭合</li>
+					<li>原生标签小写，自定义标签(组件)必须大写</li>
+					<li>每一个render方法只能有一个顶级标签，其它所有标签都在这个顶级标签里面</li>
+					<li>有些属性因为js保留关键字的原因，写法有改变，class=>className,for=>htmlFor</li>
+					<li>接受变量需要用大括号括起来，行内样式style接受一个对象</li>
+					<li>render方法必须返回的是react组件，null或者undefined</li>
+					<li>我们可以在html中写入js，但它必须要被大括号括起来，js的返回值也必须是react组件，undefined或者null。也可以是一个数组，数组会自动被react展开，展开的内容也必须是上述所说的类型</li>
+				</ol>
+				<p>案例展示:<a href="/lesson1.html" target="_blank" >demo01</a></p>	
 			</Article>
 		)
 	}

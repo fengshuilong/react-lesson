@@ -1,13 +1,15 @@
 import React,{ Component } from 'react'
 import { render } from 'react-dom'
-import { LifeCycle } from '../container'
 
 require('../style/base/base.less')
-class App extends Component {
+
+class Hello extends Component {
 	render() {
-		return <LifeCycle />
+		return (
+			<h2 className="text-center" >Hello React!</h2>
+		)
 	}
 }
 
-render(<App />,document.getElementById('app'))
+render(<Hello />,document.getElementById('app'))
 module.hot.accept()

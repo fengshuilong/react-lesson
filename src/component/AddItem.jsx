@@ -7,10 +7,15 @@ export class AddItem extends Component {
 		this.props.handleAdd(text)
 		node.value = ''
 	}
+	handleKeyDown(e) {
+		if(e.nativeEvent.keyCode==13) {
+			this.handleClick()
+		}
+	}
 	render() {
 		return (
 			<div>
-				<input type="text" ref="input" />
+				<input type="text" ref="input" onKeyDown = { (e)=>this.handleKeyDown(e) }  />
 				<button onClick={ ()=>this.handleClick() }>Add</button>				
 			</div>
 		)

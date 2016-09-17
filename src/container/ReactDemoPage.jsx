@@ -6,9 +6,10 @@ import Menu from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
 import { Header } from '../component'
 
-let arr = ['引言','JSX语法','React组件','React事件','状态管理','生命周期函数','组件间通信','redux','react-router','react动画','高阶组件','性能优化']
+let arr = ['引言','JSX语法','React组件','React事件','状态管理','生命周期函数','组件间通信','redux','react-router','高阶组件','react动画','性能优化']
 let springConfig = { stiffness:300,damping:26 }
 
+console.log(React)
 class ReactDemoList extends Component {
 	render() {
 		return (
@@ -34,7 +35,7 @@ class ReactDemoList extends Component {
 										</Menu>
 									</div>
 									<div className="col-md-9 col-md-offset-1">
-										{ this.props.children }
+										{ React.cloneElement(this.props.children,{ key:Math.random() }) }
 									</div>
 								</div>
 							</div>
