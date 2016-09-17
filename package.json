@@ -9,7 +9,7 @@
     "start": "webpack-dev-server --inline --hot --host 0.0.0.0 --config ./webpack.dev.js --progress --colors --history-api-fallback --port 8082"
   },
   "keywords": [],
-  "author": "",
+  "author": "donghao",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^6.4.0",
