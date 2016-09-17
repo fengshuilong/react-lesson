@@ -4,13 +4,9 @@ import { browserHistory } from 'react-router'
 export default class Header extends Component {
 	render(){
 		return (
-			<header className="header" >
+			<header className="header" style={{ position:'relative','zIndex':10 }} >
 				<div className="container">
 				<span className="logo" onClick={ ()=>browserHistory.push('/') } >DH</span>
-				<ul className="list-inline menu pull-right " >
-					<li>demo</li>
-					<li>test</li>
-				</ul>
 				{ this.props.children }
 				</div>
 			</header>

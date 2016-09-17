@@ -1,26 +1,14 @@
 import React,{ Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Paper from 'material-ui/Paper'
-import cachedImage from '../mixin/loadImage.js'
 
-class Img extends Component {
-	componentDidMount() {
-		alert(2)
-	}
-	render() {
-		console.log(this.props.alert())
-		return <img src={ this.props.data } />
-	}
-}
-let CachedImage = cachedImage(Img)
 
 export const UserCard = ({ user })=>{
-	let img = <CachedImage src={ user.avatar_url } />
 	return (<MuiThemeProvider>
 		<Paper>
 			<div className="user-card clearfix" >
 				<figure>
-					{ img }
+					<img src={ user.avatar_url  } />
 				</figure>
 				<div className="user-info pull-left" >
 					<p>姓名:{ user.login }</p>

@@ -5,6 +5,7 @@ import { autobind } from 'core-decorators'
 import { Motion,spring } from 'react-motion'
 import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import LandingPageAnimation from '../component/LandingAnimation.jsx'
 
 let timer = null;
 
@@ -54,10 +55,9 @@ export class LandingPage extends Component {
 									><span style={{ fontFamily:'pf',color:'#fff' }} >Start Learning</span></RaisedButton>
 							</div>
 						</div>
-						<canvas ref="canvas" ></canvas>
 					</div>
 				</MuiThemeProvider>
-				<canvas ref="canvas"></canvas>
+				<LandingPageAnimation />
 			</div>
 		)
 	}
