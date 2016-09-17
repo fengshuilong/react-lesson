@@ -17,7 +17,7 @@ class DetailPage extends Component {
 		return (
 			<div className="detail-page" >
 				<Header></Header>
-				<div className="container clearfix" >
+				<div className="container clearfix" style={{ marginTop:'80px' }} >
 					<UserCard user={ this.props.user }  />
 				</div>
 			</div>
