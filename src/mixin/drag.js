@@ -10,8 +10,8 @@ export default function drag(Unit){
 			let disX = e.nativeEvent.clientX-e.target.offsetLeft,
 				disY = e.nativeEvent.clientY-e.target.offsetTop
 			document.onmousemove = (e)=>{
-				let left = e.clientX-this.state.disX,
-				top  = e.clientY-this.state.disY
+				let left = e.clientX-disX,
+				top  = e.clientY-disY
 				this.setState({ left,top }) 
 			}
 			document.onmouseup = ()=>{
