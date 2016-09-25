@@ -1,6 +1,6 @@
 # react-lesson
 项目本身是基于react的。一些内容的描述很简陋，所以不用仔细追究。但是整个项目的构建可以学习，可以说这是一个比较完整的react-demo
-下面是一些学习react的资料
+具体的学习请参考下以下资料
 * ES6 http://es6.ruanyifeng.com/
 * webpack https://segmentfault.com/a/1190000005995267
 * react-webpack http://fakefish.github.io/react-webpack-cookbook/
